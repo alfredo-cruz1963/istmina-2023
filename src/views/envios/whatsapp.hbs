@@ -1,0 +1,184 @@
+<div class="container">
+  <div class="col-sm-6 mx-auto">
+    <div class="card ">
+      <div class="card-header bg-dark text-white">
+        <h6>Transmitir E-14</h6>
+      </div>
+      {{!-- <form id="formularioImagen" enctype="multipart/form-data" action="/envios/grabae14/" method="post"> --}}
+        <div class="card-body">
+
+          <div class="card-block">
+            <img id="imageOriginal" src="" alt="Upload" class="card-img-top" width="150" height="450" />
+          </div>
+          <div class="card-footer text-muted">
+            <input type="file" id="imageInput" name="file" accept=".jpeg, .jpg" />
+          </div>
+
+          <div id="reader"></div>
+        </div>
+        <button type="submit" id='btnEnviarE14' class="btn btn-primary btnEnviarE14" autofocus>Enviar</button>
+    </div>
+    {{!-- </form> --}}
+  </div>
+  <div class="modal"></div>
+</div>
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+<script type="text/javascript">
+  document.body.classList.add("loading");
+  var nombFile;
+  let fileName
+  var imagenBase64;
+  let formData
+
+  let imgElement = document.getElementById('imageOriginal');
+  let inputElement = document.getElementById('imageInput');
+  btnEnviarE14.disabled = true;
+
+
+  // Función para verificar si la cookie existe
+  function isFileProcessed(fileName) {
+    const cookieValue = getCookie(fileName);
+    return cookieValue === 'true';
+  }
+
+  // Función para crear una cookie con una fecha de vencimiento
+  function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+  }
+
+  // Función para leer una cookie
+  function getCookie(name) {
+    const cookieName = `${name}=`;
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    for (let i = 0; i < cookieArray.length; i++) {
+      let cookie = cookieArray[i];
+      while (cookie.charAt(0) === ' ') {
+        cookie = cookie.substring(1);
+      }
+      if (cookie.indexOf(cookieName) === 0) {
+        return cookie.substring(cookieName.length, cookie.length);
+      }
+    }
+    return null;
+  }
+
+  function deleteCookie(name) {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  }
+
+
+  //GRABA FOTO E-14 - submit para la captura del E-14
+  $(document).on("click", ".btnEnviarE14", function () {
+
+    $.ajax({
+      url: "/envios/grabae14Arch/",
+      method: "POST",
+      processData: false, // Evita que jQuery procese los datos
+      contentType: false, // Evita que jQuery configure el tipo de contenido
+      data: formData,
+      success: function (res) {
+        if (res === "OK") {
+          Swal.fire('La Foto del E-14 se Guardo Correctamente!', '', 'success');
+          document.getElementById('imageOriginal').src = '';
+          document.getElementById('imageInput').value = '';
+          btnEnviarE14.disabled = true;
+          // Crear una cookie para indicar que el archivo se procesó
+          setCookie(fileName, 'true', 30); // Establece la cookie por 30 días
+          console.log('Archivo procesado y cookie creada.');
+        }
+      },
+      error: function (error) {
+        console.error("Error en la petición AJAX:", error);
+      },
+    });
+  });
+
+  // Flujo principal
+  //*******************************************
+  inputElement.addEventListener('change', (e) => {
+    e.preventDefault(); // Evita la recarga de la página
+
+    const inputImagen = document.getElementById("imageInput");
+
+    if (!inputImagen.files || !inputImagen.files[0]) {
+      alert("Por favor, selecciona un archivo de imagen.");
+      return;
+    }
+
+    formData = new FormData();
+    formData.append("imagen", inputImagen.files[0]);
+
+    btnEnviarE14.disabled = false;
+    imgElement.src = '';
+
+    const file = event.target.files[0];
+    if (isFileProcessed(fileName)) {
+      document.getElementById('imageOriginal').src = '';
+      document.getElementById('imageInput').value = '';
+      btnEnviarE14.disabled = true;
+
+      Swal.fire({title: "Este archivo ya fue procesado.", icon: "error" }, "", "danger");
+
+      deleteCookie(fileName);
+    } else {
+      imgElement.src = URL.createObjectURL(e.target.files[0]);
+      const image = document.getElementById("imageInput").files[0];
+      nombFile = document.getElementById("imageInput").files[0].name;
+
+      // Crear una cookie para indicar que el archivo se procesó
+      setCookie(fileName, 'true', 30); // Establece la cookie por 30 días
+      //deleteCookie("miCookie");
+      console.log('Archivo procesado y cookie creada.');
+    }
+
+  });
+
+  //*******************************************
+
+  /*
+    inputElement1.addEventListener('change', (e) => {
+      e.preventDefault();
+      btnEnviarE14.disabled = false;
+      imgElement.src = '';
+  
+      const file = event.target.files[0];
+      if (file) {
+        fileName = file.name;
+  
+        if (isFileProcessed(fileName)) {
+          document.getElementById('imageOriginal').src = '';
+          document.getElementById('imageInput').value = '';
+          btnEnviarE14.disabled = true;
+  
+          Swal.fire('Este archivo ya ha sido procesado.', '', 'danger');
+          deleteCookie(fileName);
+        } else {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            imagenBase64 = event.target.result;
+            console.log(imagenBase64)
+          };
+  
+          // Lee el archivo como base64
+          reader.readAsDataURL(file);
+  
+          imgElement.src = URL.createObjectURL(e.target.files[0]);
+          const image = document.getElementById("imageInput").files[0];
+          nombFile = document.getElementById("imageInput").files[0].name;
+  
+          // Crear una cookie para indicar que el archivo se procesó
+          //setCookie(fileName, 'true', 30); // Establece la cookie por 30 días
+          //deleteCookie("miCookie");
+          console.log('Archivo procesado y cookie creada.');
+        }
+      }
+    }, false);
+  */
+</script>

@@ -1,0 +1,45 @@
+{
+  "name": "preconteo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "canvas": "^2.11.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "exceljs": "^4.3.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.4.0",
+    "express-handlebars": "^3.1.0",
+    "express-myconnection": "^1.0.4",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.1",
+    "express-validator": "^5.3.1",
+    "jimp": "^0.22.10",
+    "jsqr": "^1.4.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.4.10",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "qrcode-reader": "^1.0.4",
+    "sharp": "^0.32.5",
+    "static-favicon": "^2.0.0-alpha",
+    "timeago.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^1.19.4"
+  }
+}

@@ -1,0 +1,602 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card-header d-flex align-items-center" style="background-color: rgba(232, 240, 254, 0.80)">
+      <i class="text-success mr-1"></i><strong class="municipio">{{municipio}} - {{nombrePuesto}} - Mesas:
+        {{mtotMesas}}</strong>
+      <div class="d-flex align-items-center ml-auto">
+        <button id="btnAdd" class="btn btn-success"><i class="fa fa-plus-square" aria-hidden="true"></i>
+          Adiciona mesa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-1">
+  <div class="col-md-12 mx-auto">
+    <div class="card ">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="tab-control" class="table table-bordered" style="width:100%" cellspacing="0">
+            <thead class="text-white" style="background-color: #165a96">
+              <tr>
+                <td>Cod Mesa</strong></td>
+                <td>Mesa</td>
+                <td>Can1</td>
+                <td>Can2</td>
+                <td>Can3</td>
+                <td>Can4</td>
+                <td>Can5</td=>
+                <td>Can6</td>
+                <td>Can7</td>
+                <td>Blan</td>
+                <td>Nulo</td>
+                <td>Nom</td>
+                <td>E-11</td>
+                <td>Rec</td>
+                <td>Recl</td>
+                <td style=" background-color: #28a745;">Fot1</td>
+                <td style=" background-color: #28a745;">Fot2</td>
+                <td style=" background-color: #28a745;">Fot3</td>
+                <td style=" background-color: #ffc107;">FotR</td>
+                <td>Acciones</td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- *************************** empieza el modal Agregar/Editar alumno ******************************* -->
+<div class="modal fade" id="modalEnvios" role="dialog" tabindex="0" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+      </div>
+      <form id="formEnvio">
+        <font size=2>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-2">
+                <label>Mesa</label>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  style="height: 25px;" name="mesa" id="mesa" title="Recibe solo numeros" pattern="^([0-9]){1,3}$"
+                  autocomplete="off" autofocus required>
+              </div>
+              <div class="col-4 text-right">
+                <label>Total E-11</label>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  style="height: 25px;" name="sufraga" id="sufraga" title="Recibe solo numeros" pattern="^([0-9]){1,3}$"
+                  autocomplete="off" required>
+              </div>
+            </div>
+
+            <div class="dropdown-divider"></div>
+
+            <div class="row">
+              <div class="col-2">
+                N°
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="can1" id="can1" value="01" readonly>
+              </div>
+              <div class="col-7">
+                Candidato
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre1"
+                  value="LUZ MERY MURILLO CARRASCO" readonly>
+              </div>
+              <div class="col-3">
+                Votos
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos1" id="votos1" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can2" id="can2"
+                  value="02" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre2"
+                  value="LUIS ERNESTO MOSQUERA ASPRILLA" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos2" id="votos2" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can3" id="can3"
+                  value="03" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre3"
+                  value="JHONAR ALEXANDE MOSQUERA MURILLO" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos3" id="votos3" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can4" id="can4"
+                  value="04" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre4"
+                  value="MARIA PAULA RIVAS ASPRILLA" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos4" id="votos4" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can5" id="can5"
+                  value="05" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre5"
+                  value="DHAIAN MOSQUERA VALENCIA" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos5" id="votos5" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can6" id="can6"
+                  value="06" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre6"
+                  value="JAISON MOSQUERA SANCHEZ" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos6" id="votos6" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can7" id="can7"
+                  value="07" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre7"
+                  value="BEYMAR ALEXANDER MOSQUERA BORJA" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos7" id="votos7" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-2">
+                <input type="hidden" class="form-control" style="height: 25px; font-size: 12px;" name="can8" id="can8"
+                  value="96" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre8"
+                  value="VOTOS EN BLANCO" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos8" id="votos8" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="hidden" class="form-control" style="height: 25px; font-size: 12px;" name="can9" id="can9"
+                  value="97" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre9"
+                  value="VOTOS NULOS" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos9" id="votos9" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <input type="hidden" class="form-control" style="height: 25px; font-size: 12px;" name="can10" id="can10"
+                  value="98" readonly>
+              </div>
+              <div class="col-7">
+                <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre10"
+                  value="VOTOS NO MARCADOS" readonly>
+              </div>
+              <div class="col-3">
+                <input type="number" class="form-control" style="height: 25px; font-size: 12px;"
+                  name="votos10" id="votos10" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off"
+                  required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 text-right">
+                <input id="reclama" class="form-check-input" name="reclama" type="checkbox" value="0">Reclamaca
+              </div>
+              <div class="col-3 text-right">
+                <input id="recuento" class="form-check-input chkRecuento" name="recuento" type="checkbox"
+                  value="0">Recuento
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" id="btnGrabar" class="btn btn-primary float-right btnGrabar">nada</button>
+          </div>
+        </font>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- *************************** termina lo modal agregar/Editar *************************************** -->
+
+<!-- *************************** empieza el modal Agregar foto ******************************* -->
+<div class="modal fade" id="modalFotoE14" role="dialog" tabindex="0" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-block text-center">
+                <img id="imageOriginal" src="" alt="Upload" class="card-img-top" width="100" height="500" />
+              </div>
+              <div class="card-footer text-muted">
+                <input type="file" id="imageInput" name="file" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" id='btnEnviarE14' class="btn btn-primary btnEnviarE14" autofocus>Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- *************************** termina lo modal agregar foto ********************************* -->
+
+<!-- *************************** empieza el modal evidencias foto ******************************* -->
+<div class="modal fade" id="modalEvidencias" role="dialog" tabindex="0" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+      </div>
+
+      <div class="modal-body">
+        <div class="dropdown-divider"></div>
+
+        <div class="row">
+          <div class="col-4">
+            <button type="button" id="btnFoto1" class="btn btn-success float-left btnFoto1">
+              <i class="fas fa-image" aria-hidden="true"></i>  Foto-1</button>
+          </div>
+          <h6 id="h6Foto1">NO se a enviado Foto 1</h6>
+          <br>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <button type="button" id="btnFoto2" class="btn btn-success float-left btnFoto2" disabled>
+              <i class="fas fa-image" aria-hidden="true"></i> Foto-2</button>
+          </div>
+          <h6 id="h6Foto2">NO requiere Foto 2</h6>
+          <br>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <button type="button" id="btnFoto3" class="btn btn-success float-left btnFoto3" disabled>
+              <i class="fas fa-image" aria-hidden="true"></i> Foto-3</button>
+          </div>
+          <h6 id="h6Foto3">NO Requiere Foto 3</h6>
+          <br>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="row">
+          <div class="col-4">
+            <button type="button" id="btnFoto4" class="btn btn-warning float-left btnFoto4">
+              <i class="fas fa-image" aria-hidden="true"></i> Reclamación</button>
+          </div>
+          <h6 id="h6Foto4">NO se a enviado Foto Reclamación</h6>
+          <br>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Volver</button>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-- *************************** termina el modal evidencias foto ******************************* -->
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+  integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+  integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.all.min.js"></script>
+
+<script type="text/javascript" language="javascript"
+  src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" language="javascript"
+  src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
+
+<script type="text/javascript" src="/js/tablecontrol.js"></script>
+
+<script type="text/javascript">
+
+  const totMesas = {{{ mtotMesas }}};
+  const mCodPuesto = {{{ codigoPuesto }}};
+  var registros = [];
+  var myllave = '';
+  var pasar = true;
+
+  let imgElement = document.getElementById('imageOriginal');
+  let inputElement = document.getElementById('imageInput');
+  let btnEnviarE14 = document.getElementById('btnEnviarE14');
+  let btnFoto1 = document.getElementById('btnFoto1');
+  let btnFoto2 = document.getElementById('btnFoto2');
+  let btnFoto3 = document.getElementById('btnFoto3');
+  let btnFoto4 = document.getElementById('btnFoto4');
+
+  let h6Foto1 = document.getElementById("h6Foto1");
+  let h6Foto2 = document.getElementById("h6Foto2");
+  let h6Foto3 = document.getElementById("h6Foto3");
+  let h6Foto4 = document.getElementById("h6Foto4");
+
+  let btnGrabar = document.getElementById('btnGrabar');
+
+  //btnEnviarE14.disabled = true;
+
+  inputElement.addEventListener('change', (e) => {
+    imgElement.src = '';
+    imgElement.src = URL.createObjectURL(e.target.files[0]);
+    btnEnviarE14.disabled = false;
+  }, false);
+
+const mymesa = document.getElementById('mesa');
+  const mysufraga = document.getElementById('sufraga');
+  const mycan1 = document.getElementById('can1');
+  const mycan2 = document.getElementById('can2');
+  const mycan3 = document.getElementById('can3');
+  const mycan4 = document.getElementById('can4');
+  const mycan5 = document.getElementById('can5');
+  const mycan6 = document.getElementById('can6');
+  const mycan7 = document.getElementById('can7');
+  const mycan8 = document.getElementById('can8');
+  const mycan9 = document.getElementById('can9');
+  const mycan10 = document.getElementById('can10');
+
+
+  const myvotos1 = document.getElementById('votos1');
+  const myvotos2 = document.getElementById('votos2');
+  const myvotos3 = document.getElementById('votos3');
+  const myvotos4 = document.getElementById('votos4');
+  const myvotos5 = document.getElementById('votos5');
+  const myvotos6 = document.getElementById('votos6');
+  const myvotos7 = document.getElementById('votos7');
+  const myvotos8 = document.getElementById('votos8');
+  const myvotos9 = document.getElementById('votos9');
+  const myvotos10 = document.getElementById('votos10');
+
+
+  const checkbox = document.getElementById('recuento');
+  const checkbox2 = document.getElementById('reclama');
+  mymesa.focus
+
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      this.value = '1';
+    } else {
+      this.value = '0';
+    }
+  });
+
+  checkbox2.addEventListener('change', function () {
+    if (this.checked) {
+      this.value = '1';
+    } else {
+      this.value = '0';
+    }
+  });
+
+  function crearJSON() {
+    const mesa = mymesa.value;
+    const sufraga = mysufraga.value;
+    const can1 = mycan1.value;
+    const can2 = mycan2.value;
+    const can3 = mycan3.value;
+    const can4 = mycan4.value;
+    const can5 = mycan5.value;
+    const can6 = mycan6.value;
+    const can7 = mycan7.value;
+    const can8 = mycan8.value;
+    const can9 = mycan9.value;
+    const can10 = mycan10.value;
+
+
+    const vot1 = myvotos1.value;
+    const vot2 = myvotos2.value;
+    const vot3 = myvotos3.value;
+    const vot4 = myvotos4.value;
+    const vot5 = myvotos5.value;
+    const vot6 = myvotos6.value;
+    const vot7 = myvotos7.value;
+    const vot8 = myvotos8.value;
+    const vot9 = myvotos9.value;
+    const vot10 = myvotos10.value;
+
+
+    const recuento = checkbox.value;
+    const reclama = checkbox2.value;
+
+    const dep = mCodPuesto.substring(0, 2);
+    const mun = mCodPuesto.substring(0, 5);
+    const zona = mCodPuesto.substring(5, 7);
+    const puesto = mCodPuesto.substring(mCodPuesto.length - 2);
+    const mmesa = ("000" + mesa).substring(("000" + mesa).length - 3);
+    const codigo = mCodPuesto + mmesa;
+    myllave = codigo;
+
+    registros = [];
+
+    for (let x = 1; x <= 10; x++) {
+      var can = eval("can" + x);
+      var votos = parseInt(eval("vot" + x));
+
+      if (votos == 0) continue;
+      const body =
+      {
+        codigo: codigo,
+        dep: dep,
+        mun: mun,
+        zona: zona,
+        puesto: puesto,
+        mesa: mmesa,
+        can: can,
+        votos: votos,
+        sufragos: sufraga,
+        recuento: recuento,
+        reclama: reclama
+      };
+      registros.push(body);
+    }
+  }
+
+  function validarDatos() {
+    const vlrMesa = mymesa.value;
+
+    if (vlrMesa === '') {
+      alert("Debe Digitar el número de la mesa...")
+      pasar = false;
+      mymesa.focus();
+      return
+    } else {
+      pasar = true;
+      if (parseInt(vlrMesa) > parseInt(totMesas)) {
+        alert(`El numero de la mesa no debe ser mayor de:  ${totMesas}`)
+        mymesa.value = '';
+        pasar = false;
+        mymesa.focus();
+        return
+      } else { pasar = true }
+    }
+  }
+
+  function limpiar() {
+  mymesa.value = '';
+    mysufraga.value = '';
+    myvotos1.value = '';
+    myvotos2.value = '';
+    myvotos3.value = '';
+    myvotos4.value = '';
+    myvotos5.value = '';
+    myvotos6.value = '';
+    myvotos7.value = '';
+    myvotos8.value = '';
+    myvotos9.value = '';
+    myvotos10.value = '';
+ 
+    checkbox.value = '0';
+    checkbox2.value = '0';
+  }
+
+  // Función para obtener la imagen en base64 desde el elemento img
+  function getBase64FromImgElement(imgElement) {
+    let canvas = document.createElement("canvas");
+    canvas.width = imgElement.width;
+    canvas.height = imgElement.height;
+
+    let ctx = canvas.getContext("2d");
+    ctx.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
+    let calidad = 0.5;
+
+    let myFoto = canvas.toDataURL("image/jpeg", calidad); // Puedes cambiar "image/jpeg" según el formato de imagen que desees.
+    return myFoto.split('base64,')[1]
+    //let base64ImageReducedQuality = imgElement.toDataURL('image/jpeg', calidad);
+  }
+
+  // Flujo captura voz
+  //const recognition = new webkitSpeechRecognition();
+  var recognition;
+  function activar_voz() {
+    if ('webkitSpeechRecognition' in window) {
+      const voiceInputs = document.querySelectorAll('.voice-input');
+      let currentInputIndex = 0;
+      recognition = new webkitSpeechRecognition();
+      let isRecognitionActive = false;
+
+      recognition.continuous = false;
+      recognition.lang = 'es-ES';
+
+      recognition.onresult = (event) => {
+        const userInput = event.results[0][0].transcript;
+        voiceInputs[currentInputIndex].value = userInput;
+        currentInputIndex++;
+
+        if (currentInputIndex < voiceInputs.length) {
+          voiceInputs[currentInputIndex].focus();
+        } else {
+          recognition.stop();
+        }
+      };
+
+      $('#modalEnvios').on('hidden.bs.modal', function () {
+        currentInputIndex = 17;
+        recognition.stop(); // Detener el reconocimiento cuando se cierra el modal
+      });
+
+      recognition.onend = () => {
+        if (currentInputIndex < voiceInputs.length) {
+          recognition.start();
+        }
+      };
+
+      voiceInputs[currentInputIndex].focus();
+      recognition.start();
+      isRecognitionActive = true;
+    } else {
+      console.log('El navegador no es compatible con la API Web Speech.');
+    }
+  }
+</script>

@@ -1,0 +1,237 @@
+{{#if user}}
+<nav class="sb-topnav navbar navbar-expand navbar-dark " style="background-color: RGB(54,127,169);">
+  <a class="navbar-brand mr-0 mr-md-2  text-white">
+    <img src="/img/Tools.ico" style="width: 2rem;">
+    Datos E-14
+  </a>
+
+  {{#if (or (ne user.rol 2) (eq user.rol 3))}}
+  <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+    <i class="fas fa-bars"></i>
+  </button>
+  {{/if}}
+
+  <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+  </form>
+
+  <ul class="navbar-nav ml-auto ml-md-0">
+    <li class="nav-item dropdown active">
+      <a class="nav-link dropdown-toggle " id="userDropdown" href="#" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-user fa-fw text-white"></i>
+      </a>
+
+      <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
+        {{#if (eq user.rol 1)}}
+        <a class="dropdown-item" href="/perfil">
+          <i class="fas fa-user-tie fa-sm fa-fw pull-right text-primary"></i>
+          Perfil
+        </a>
+
+        <a class="dropdown-item" href="/change">
+          <i class="fas fas fa-lock fa-sm fa-fw pull-right text-warning"></i>
+          Cambiar Password
+        </a>
+
+        <div class="dropdown-divider"></div>
+        {{/if}}
+
+        <a class="dropdown-item " href="/logout">
+          <i class="fas fa-sign-out-alt fa-sm fa-fw pull-right text-danger"></i>
+          Cerrar sesión
+        </a>
+      </div>
+    </li>
+  </ul>
+
+</nav>
+
+<div id="layoutSidenav">
+  <div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+      <div class="sb-sidenav-menu">
+        <div class="nav">
+          <a class="nav-link " href="/home">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-home text-white"></i>
+            </div>
+            Dashboard
+          </a>
+          <div class="sb-sidenav-menu-heading text-white">MENU</div>
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            aria-expanded="false" aria-controls="collapsePages">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-book-open text-warning"></i>
+            </div>
+            Resultados
+            <div class="sb-sidenav-collapse-arrow">
+              <i class="fas fa-angle-down text-white"></i>
+            </div>
+          </a>
+          <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+              {{#if (eq user.rol 1)}}
+              <a class="nav-link collapsed" href="/envios/add" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-white">
+                  <i class="fas fa-id-card"></i>
+                </div>
+                Recepcionar E-14
+              </a>
+              <a class="nav-link collapsed" href="/envios/whatsapp" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-success">
+                  <i class="fas fa-image"></i>
+                </div>
+                Cargar E-14
+              </a>
+              <a class="nav-link collapsed" href="/envios/consulta/{{user.codmpio}}" style="font-size: 12px;">
+              {{!-- <a class="nav-link collapsed" href="/envios/consulDpto" style="font-size: 12px;"> --}}
+                <div class="sb-nav-link-icon text-danger">
+                  <i class="fas fa-user"></i>
+                </div>
+                Seguimiento
+              </a>
+              {{!-- <a class="nav-link collapsed" href="/envios/verifyDptal" style="font-size: 12px;"> --}}
+              <a class="nav-link collapsed" href="/envios/verifyMpal/{{user.codmpio}}" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-primary">
+                  <i class="fas fa-user"></i>
+                </div>
+                Verificar E-14
+              </a>
+              <a class="nav-link collapsed" href="/envios/preconteo" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-success">
+                  <i class="fa fa-file-excel"></i>
+                </div>
+                Exportar Preconteo
+              </a>
+              <a class="nav-link collapsed" href="/envios/critica/1" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-success">
+                  <i class="fa fa-file-excel"></i>
+                </div>
+                Mesas por Divipol
+              </a>
+              <a class="nav-link collapsed" href="/envios/critica/2" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-success">
+                  <i class="fa fa-file-excel"></i>
+                </div>
+                Mesas por Comisión
+              </a>
+              {{/if}}
+              {{#if (eq user.rol 3)}}
+              <a class="nav-link collapsed" href="/envios/consulta/{{user.codmpio}}" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-warning">
+                  <i class="fas fa-user"></i>
+                </div>
+                Seguimiento
+              </a>
+              {{/if}}
+
+              {{#if (eq user.rol 4)}}
+              <a class="nav-link collapsed" href="/envios" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-info">
+                  <i class="fas fa-user"></i>
+                </div>
+                Transmitir Datos
+              </a>
+              <a class="nav-link collapsed" href="/envios/whatsapp" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-success">
+                  <i class="fas fa-image"></i>
+                </div>
+                Transmitir E-14
+              </a>
+              {{/if}}
+
+              {{#if (eq user.rol 8)}}
+              <a class="nav-link collapsed" href="/envios/verifyMpal/{{user.codmpio}}" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-primary">
+                  <i class="fas fa-user"></i>
+                </div>
+                Verificar E-14
+              </a>
+              {{/if}}
+              {{#if (eq user.rol 9)}}
+              <a class="nav-link collapsed" href="/envios/add" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-white">
+                  <i class="fas fa-id-card"></i>
+                </div>
+                Recepcionar E-14
+              </a>
+              <a class="nav-link collapsed" href="/envios/whatsapp" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-success">
+                  <i class="fas fa-image"></i>
+                </div>
+                Cargar E-14
+              </a>
+              {{/if}}
+            </nav>
+          </div>
+
+          {{#if (eq user.rol 1)}}
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePuestos"
+            aria-expanded="false" aria-controls="collapsePuestos">
+            <div class="sb-nav-link-icon ">
+              <i class="fas fa-user-friends text-info"></i>
+            </div>
+            Puestos de Votación
+            <div class="sb-sidenav-collapse-arrow">
+              <i class="fas fa-angle-down text-white"></i>
+            </div>
+          </a>
+          <div class="collapse" id="collapsePuestos" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+              <a class="nav-link collapsed" href="/puestos" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-warning">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                Lista los Puestos
+              </a>
+              <a class="nav-link collapsed" href="/puestos/add" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-info">
+                  <i class="fa fa-restroom"></i>
+                </div>
+                Adiccionar Puestos
+              </a>
+            </nav>
+          </div>
+
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+            aria-expanded="false" aria-controls="collapseUser">
+            <div class="sb-nav-link-icon">
+              <i class="fas fa-user-tie text-danger"></i>
+            </div>
+            Usuarios
+            <div class="sb-sidenav-collapse-arrow">
+              <i class="fas fa-angle-down text-white"></i>
+            </div>
+          </a>
+          <div class="collapse" id="collapseUser" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+              <a class="nav-link collapsed" href="/users" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-warning">
+                  <i class="fas fa-users"></i>
+                </div>
+                Usuarios
+              </a>
+              <a class="nav-link collapsed" href="/users/add" style="font-size: 12px;">
+                <div class="sb-nav-link-icon text-info">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+                Adicionar Usuarios
+              </a>
+            </nav>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="sb-sidenav-footer">
+        <div class="small">Logged in:</div>
+        {{user.username}}<br>
+        {{user.fullname}}
+      </div>
+    </nav>
+  </div>
+
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid">
+
+{{/if}}

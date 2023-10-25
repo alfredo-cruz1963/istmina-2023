@@ -1,0 +1,255 @@
+<div class="container mt-1">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-header d-flex align-items-center" style="background-color: rgba(232, 240, 254, 0.90)">
+        <i class="text-success mr-1"></i><strong class="municipio">{{municipio}} - Puestos: {{ptosMpio}}</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-1">
+    <div class="col-md-12 mx-auto">
+      <div class="card ">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="tab-mpal" class="table table-bordered" style="width:100%" cellspacing="0">
+              <thead class="text-white" style="background-color: #165a96">
+                <td style="font-size:98%;"><strong>Cod Puesto</strong></td>
+                <td style="font-size:98%;"><strong>Nombre Puesto</strong></td>
+                <td style="font-size:98%;"><strong>Tot Mesas</strong></td>
+                <td style="font-size:98%;"><strong>Mesas Report</strong></td>
+                <td style="font-size:98%;"><strong>% Report</strong></td>
+                <td style="font-size:98%;"><strong>Tot Votos</strong></td>
+                <td style="font-size:98%;"><strong>Tot Sufrag</strong></td>
+                <td style="font-size:98%;"><strong>Promedio</strong></td>
+                <td style="font-size:98%;"><strong>Nivelada</strong></td>
+                <td><strong>Acción</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- *************************** empieza el modal Agregar/Editar alumno ******************************* -->
+  <div class="modal fade" id="modalResult" role="dialog" tabindex="0" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+        </div>
+        <form id="formResult">
+          <font size=2>
+            <div class="modal-body">
+              <div class="col-sm-10 mx-auto">
+                <div class="row">
+                  <div class="col-8">
+                    Candidato
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre1"
+                      value="LUZ MERY MURILLO CARRASCO" readonly>
+                  </div>
+                  <div class="col-4">
+                    Votos
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos1"
+                      id="votos1" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre2"
+                      value="LUIS ERNESTO MOSQUERA ASPRILLA" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos2"
+                      id="votos2" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre3"
+                      value="JHONAR ALEXANDER MOSQUERA MURILLO" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos3"
+                      id="votos3" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre4"
+                      value="MARIA PAULA RIVAS ASPRILLA" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos4"
+                      id="votos4" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre5"
+                      value="DHAIAN MOSQUERA VALENCIA" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos5"
+                      id="votos5" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre6"
+                      value="JAISON MOSQUERA SANCHEZ" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos6"
+                      id="votos6" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre7"
+                      value="BEYMAR ALEXANDER MOSQUERA BORJA" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos7"
+                      id="votos7" readonly>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre8"
+                      value="VOTOS EN BLANCO" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos8"
+                      id="votos8" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre9"
+                      value="VOTOS NULOS" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos9"
+                      id="votos9" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre10"
+                      value="VOTOS NO MARCADOS" readonly>
+                  </div>
+                  <div class="col-4">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos10"
+                      id="votos10" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+          </font>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- *************************** termina lo modal agregar/Editar *************************************** -->
+
+</div>
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+  integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+  integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.all.min.js"></script>
+
+<script type="text/javascript" language="javascript"
+  src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" language="javascript"
+  src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>
+
+<script type="text/javascript" src="/js/tablempal.js"></script>
+
+<script>
+  const myCodMpio = {{{ codigo }}};
+
+  const myvotos1 = document.getElementById('votos1');
+  const myvotos2 = document.getElementById('votos2');
+  const myvotos3 = document.getElementById('votos3');
+  const myvotos4 = document.getElementById('votos4');
+  const myvotos5 = document.getElementById('votos5');
+  const myvotos6 = document.getElementById('votos6');
+  const myvotos7 = document.getElementById('votos7');
+  const myvotos8 = document.getElementById('votos8');
+  const myvotos9 = document.getElementById('votos9');
+  const myvotos10 = document.getElementById('votos10');
+
+
+  function limpiar() {
+    myvotos1.value = '';
+    myvotos2.value = '';
+    myvotos3.value = '';
+    myvotos4.value = '';
+    myvotos5.value = '';
+    myvotos6.value = '';
+    myvotos7.value = '';
+    myvotos8.value = '';
+    myvotos9.value = '';
+    myvotos10.value = '';
+
+  }
+
+  //TRAER RESULTADOS POR MUNICIPIO 
+  function traeResult(myCodigo) {
+    $.ajax({
+      url: "/envios/resultpuestos/" + myCodigo,
+      method: 'POST',
+      contentType: 'application/x-www-form-urlencoded',
+      success: function (res) {
+        datos = res;
+
+        myvotos1.value = datos[0].can1;
+        myvotos2.value = datos[0].can2;
+        myvotos3.value = datos[0].can3;
+        myvotos4.value = datos[0].can4;
+        myvotos5.value = datos[0].can5;
+        myvotos6.value = datos[0].can6;
+        myvotos7.value = datos[0].can7;
+        myvotos8.value = datos[0].blancos;
+        myvotos9.value = datos[0].nulos;
+        myvotos10.value = datos[0].nomarcado;
+      },
+      error: function (error) {
+        // Manejar el caso de error si es necesario
+        console.log('Error en la petición AJAX', error);
+      }
+    });
+  };
+
+  window.addEventListener("pageshow", function (e) {
+    e.preventDefault();
+    if (event.persisted) {
+      location.reload();
+    }
+  });
+</script>

@@ -1,0 +1,626 @@
+<div class="container p-1">
+  <div class="row">
+    <div class="col-sm-5 mx-auto">
+      <div class="card ">
+        <div class="card-header d-flex align-items-center" style="background-color: rgba(232, 240, 254, 0.90)">
+          <h5>Transmitir E-14</h5>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            <font size=2>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-2">
+                    <label>Puesto</label>
+                  </div>
+                  <div class="col-10">
+                    <select class="custom-select" style="height: 30px;" name="puesto" id="puesto"
+                      onchange="habilitarCampos()" autofocus>
+                      <option value="">Seleccione un Puesto...</option>
+                      {{#each puestos}}
+                      <option value="{{codigo}}">{{nombpuesto}}</option>
+                      {{/each }}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-2">
+                    <label>Mesa</label>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="mesa"
+                      id="mesa" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" autofocus
+                      required disabled>
+                  </div>
+                  <div class="col-4 text-right">
+                    <label>Total E-11</label>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="sufraga"
+                      id="sufraga" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <div class="row">
+                  <div class="col-2">
+                    N°
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can1" id="can1"
+                      value="01" readonly>
+                  </div>
+                  <div class="col-7">
+                    Candidato
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre1"
+                      value="LUZ MERY MURILLO CARRASCO" readonly>
+                  </div>
+                  <div class="col-3">
+                    Votos
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos1"
+                      id="votos1" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can2" id="can2"
+                      value="02" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre2"
+                      value="LUIS ERNESTO MOSQUERA ASPRILLA" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos2"
+                      id="votos2" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can3" id="can3"
+                      value="03" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre3"
+                      value="JHONAR ALEXANDER MOSQUERA MURILLO" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos3"
+                      id="votos3" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can4" id="can4"
+                      value="04" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre4"
+                      value="MARIA PAULA RIVAS ASPRILLA" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos4"
+                      id="votos4" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can5" id="can5"
+                      value="05" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre5"
+                      value="DHAIAN MOSQUERA VALENCIA" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos5"
+                      id="votos5" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can6" id="can6"
+                      value="06" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre6"
+                      value="JAISON MOSQUERA SANCHEZ" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos6"
+                      id="votos6" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="can7" id="can7"
+                      value="07" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre7"
+                      value="BEYMAR ALEXANDER MOSQUERA BORJA" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos7"
+                      id="votos7" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-2">
+                    <input type="hidden" class="form-control" style="height: 25px; font-size: 12px;" name="can8"
+                      id="can8" value="96" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre8"
+                      value="VOTOS EN BLANCO" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos8"
+                      id="votos8" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="hidden" class="form-control" style="height: 25px; font-size: 12px;" name="can9"
+                      id="can9" value="97" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre9"
+                      value="VOTOS NULOS" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos9"
+                      id="votos9" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-2">
+                    <input type="hidden" class="form-control" style="height: 25px; font-size: 12px;" name="can10"
+                      id="can10" value="98" readonly>
+                  </div>
+                  <div class="col-7">
+                    <input type="text" class="form-control" style="height: 25px; font-size: 12px;" name="nombre10"
+                      value="VOTOS NO MARCADOS" readonly>
+                  </div>
+                  <div class="col-3">
+                    <input type="number" class="form-control" style="height: 25px; font-size: 12px;" name="votos10"
+                      id="votos10" title="Recibe solo numeros" pattern="^([0-9]){1,3}$" autocomplete="off" required disabled>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-3"></div>
+                  <div class="col-6 text-right">
+                    <input id="reclama" class="form-check-input" name="recuento" type="checkbox" value="0" disabled>Reclamaca
+                  </div>
+                  <div class="col-3 text-right">
+                    <input id="recuento" class="form-check-input" name="recuento" type="checkbox" value="0" disabled>Recuento
+                  </div>
+                </div>
+              </div>
+              <div class="card-body text-center p-1">
+                <div class="text-auto">
+                  <button type="button" class="btn btn-secondary btn-sm btnLimpiar">Limpiar</button>
+                  <button type="button" class="btn btn-primary btn-sm" id="btnEnviarDatos">Enviar datos</button>
+                </div>
+              </div>
+            </font>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- *************************** empieza el modal Agregar foto ******************************* -->
+<div class="modal fade" id="modalFotoE14" role="dialog" tabindex="0" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-block text-center">
+                <img id="imageOriginal" src="" alt="Upload" class="card-img-top" width="100" height="500" />
+              </div>
+              <div class="card-footer text-muted">
+                <input type="file" id="imageInput" name="file" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" id='btnEnviarE14' class="btn btn-primary btnEnviarE14" autofocus>Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- *************************** termina lo modal agregar foto ********************************* -->
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.2/dist/sweetalert2.all.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+  var codptovotar = {{{ acodpuesto }}};
+  var nomptovotar = {{{ anompuesto }}};
+  var myPuestosMesas = {{{ mPuestos }}};
+
+  var ptosMpios = [];
+  var pvotacion = [];
+  var registros = [];
+  var myllave = '';
+  var pasar = true;
+
+  let imgElement = document.getElementById('imageOriginal');
+  let inputElement = document.getElementById('imageInput');
+  let btnEnviarE14 = document.getElementById('btnEnviarE14');
+  //let btnViewModal = document.getElementById('btnViewModal');
+  //btnViewModal.style.display = "none";
+  btnEnviarE14.disabled = true;
+
+  inputElement.addEventListener('change', (e) => {
+    imgElement.src = '';
+    imgElement.src = URL.createObjectURL(e.target.files[0]);
+    btnEnviarE14.disabled = false;
+  }, false);
+
+  const mypuestos = document.getElementById('puesto');
+  const mymesa = document.getElementById('mesa');
+  const mysufraga = document.getElementById('sufraga');
+
+  const mycan1 = document.getElementById('can1');
+  const mycan2 = document.getElementById('can2');
+  const mycan3 = document.getElementById('can3');
+  const mycan4 = document.getElementById('can4');
+  const mycan5 = document.getElementById('can5');
+  const mycan6 = document.getElementById('can6');
+  const mycan7 = document.getElementById('can7');
+  const mycan8 = document.getElementById('can8');
+  const mycan9 = document.getElementById('can9');
+  const mycan10 = document.getElementById('can10');
+
+  const myvotos1 = document.getElementById('votos1');
+  const myvotos2 = document.getElementById('votos2');
+  const myvotos3 = document.getElementById('votos3');
+  const myvotos4 = document.getElementById('votos4');
+  const myvotos5 = document.getElementById('votos5');
+  const myvotos6 = document.getElementById('votos6');
+  const myvotos7 = document.getElementById('votos7');
+  const myvotos8 = document.getElementById('votos8');
+  const myvotos9 = document.getElementById('votos9');
+  const myvotos10 = document.getElementById('votos10');
+
+  const checkbox = document.getElementById('recuento');
+  const checkbox2 = document.getElementById('reclama');
+
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      this.value = '1';
+    } else {
+      this.value = '0';
+    }
+  });
+
+  checkbox2.addEventListener('change', function () {
+    if (this.checked) {
+      this.value = '1';
+    } else {
+      this.value = '0';
+    }
+  });
+
+  for (var i in codptovotar) {
+    pvotacion.push([
+      codptovotar[i],
+      nomptovotar[i]
+    ]);
+  }
+
+  function crearJSON() {
+    const codpto = mypuestos.value;
+    const mesa = mymesa.value;
+    const sufraga = mysufraga.value;
+    const can1 = mycan1.value;
+    const can2 = mycan2.value;
+    const can3 = mycan3.value;
+    const can4 = mycan4.value;
+    const can5 = mycan5.value;
+    const can6 = mycan6.value;
+    const can7 = mycan7.value;
+    const can8 = mycan8.value;
+    const can9 = mycan9.value;
+    const can10 = mycan10.value;
+
+
+    const vot1 = myvotos1.value;
+    const vot2 = myvotos2.value;
+    const vot3 = myvotos3.value;
+    const vot4 = myvotos4.value;
+    const vot5 = myvotos5.value;
+    const vot6 = myvotos6.value;
+    const vot7 = myvotos7.value;
+    const vot8 = myvotos8.value;
+    const vot9 = myvotos9.value;
+    const vot10 = myvotos10.value;
+ 
+    const recuento = checkbox.value;
+    const reclama = checkbox2.value;
+
+    const dep = codpto.substring(0, 2);
+    const mun = codpto.substring(0, 5);
+    const zona = codpto.substring(5, 7);
+    const puesto = codpto.substring(codpto.length - 2);
+    const mmesa = ("000" + mesa).substring(("000" + mesa).length - 3);
+    const codigo = codpto + mmesa;
+    myllave = codigo;
+
+    registros = [];
+
+    for (let x = 1; x <= 10; x++) {
+      var can = eval("can" + x);
+      var votos = parseInt(eval("vot" + x));
+
+      if (votos == 0) continue;
+      const body =
+      {
+        codigo: codigo,
+        dep: dep,
+        mun: mun,
+        zona: zona,
+        puesto: puesto,
+        mesa: mmesa,
+        can: can,
+        votos: votos,
+        sufragos: sufraga,
+        recuento: recuento,
+        reclama: reclama
+      };
+      registros.push(body);
+    }
+  }
+
+  function validarDatos() {
+    const codPto = mypuestos.value;
+    const vlrMesa = mymesa.value;
+    const vlrSufraga = mysufraga.value;
+
+    const vlrVotos1 = myvotos1.value;
+    const vlrVotos2 = myvotos2.value;
+    const vlrVotos3 = myvotos3.value;
+    const vlrVotos4 = myvotos4.value;
+    const vlrVotos5 = myvotos5.value;
+    const vlrVotos6 = myvotos6.value;
+    const vlrVotos7 = myvotos7.value;
+    const vlrVotos8 = myvotos8.value;
+    const vlrVotos9 = myvotos9.value;
+    const vlrVotos10 = myvotos10.value;
+
+
+    if (codPto === '') {
+      alert("Debe Seleccionar un Puesto de Votación...")
+      pasar = false;
+      ciudades.focus();
+      return
+    } else { pasar = true }
+
+    const resultado = myPuestosMesas.find(item => item.codigo === codPto);
+    let mesasPuesto = resultado.mesas;
+
+    if (vlrMesa === '') {
+      alert("Debe Digitar el número de la mesa...")
+      pasar = false;
+      mymesa.focus();
+      return
+    } else {
+      pasar = true;
+      if (parseInt(vlrMesa) > mesasPuesto) {
+        alert(`El numero de la mesa no debe ser mayor de:  ${mesasPuesto}`)
+        mymesa.value = '';
+        pasar = false;
+        mymesa.focus();
+        return
+      } else { pasar = true }
+    }
+
+    if (vlrSufraga === '') {
+      alert("Debe Digitar el total de Sufragantes...")
+      pasar = false;
+      mysufraga.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos1 === '') {
+      alert("Debe Digitar los Votos del Candidato 1...")
+      pasar = false;
+      votos1.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos2 === '') {
+      alert("Debe Digitar los Votos del Candidato 2...")
+      pasar = false;
+      votos2.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos3 === '') {
+      alert("Debe Digitar los Votos del Candidato 3...")
+      pasar = false;
+      votos3.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos4 === '') {
+      alert("Debe Digitar los Votos del Candidato 4...")
+      pasar = false;
+      votos4.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos5 === '') {
+      alert("Debe Digitar los Votos del Candidato 5...")
+      pasar = false;
+      votos5.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos6 === '') {
+      alert("Debe Digitar los Votos del Candidato 6...")
+      pasar = false;
+      votos6.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos7 === '') {
+      alert("Debe Digitar los Votos del Candidato 7...")
+      pasar = false;
+      votos7.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos8 === '') {
+      alert("Debe Digitar los Votos del Candidato 8...")
+      pasar = false;
+      votos8.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos9 === '') {
+      alert("Debe Digitar los Votos del Candidato 9...")
+      pasar = false;
+      votos9.focus();
+      return
+    } else { pasar = true }
+
+    if (vlrVotos10 === '') {
+      alert("Debe Digitar los Votos del Candidato 10...")
+      pasar = false;
+      votos10.focus();
+      return
+    } else { pasar = true }
+
+  }
+
+  function limpiar() {
+    mypuestos.value = '';
+    mymesa.value = '';
+    mysufraga.value = '';
+    myvotos1.value = '';
+    myvotos2.value = '';
+    myvotos3.value = '';
+    myvotos4.value = '';
+    myvotos5.value = '';
+    myvotos6.value = '';
+    myvotos7.value = '';
+    myvotos8.value = '';
+    myvotos9.value = '';
+    myvotos10.value = '';
+
+
+    checkbox.value = '0';
+    checkbox2.value = '0';
+  }
+
+  $(document).ready(function () {
+    $('#btnEnviarDatos').click(function (event) {
+      event.preventDefault();
+     
+      validarDatos();
+
+      if (!pasar) { return }
+
+      crearJSON();
+
+      data = {
+        registros: registros
+      }
+
+      $.ajax({
+        url: "/envios/grabar/" + myllave,
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: function (res) {
+          if (res === "Fallo") {
+            Swal.fire("Datos de esa mesa, YA se transmitieron...", "", "error");
+            mymesa.value = '';
+            //limpiar();
+          } else {
+            Swal.fire('Los Datos se Transmitieron Exitosamente...', '', 'success');
+            limpiar();
+          }
+        }
+      });
+    });
+  });
+
+  function desHabilitar() {
+    mymesa.disabled = true;
+    mysufraga.disabled = true;
+    myvotos1.disabled = true;
+    myvotos2.disabled = true;
+    myvotos3.disabled = true;
+    myvotos4.disabled = true;
+    myvotos5.disabled = true;
+    myvotos6.disabled = true;
+    myvotos7.disabled = true;
+    myvotos8.disabled = true;
+    myvotos9.disabled = true;
+    myvotos10.disabled = true;
+
+    checkbox.disabled = true;
+    checkbox2.disabled = true;
+  }
+
+  function habilitar() {
+    mymesa.disabled = false;
+    mysufraga.disabled = false;
+    myvotos1.disabled = false;
+    myvotos2.disabled = false;
+    myvotos3.disabled = false;
+    myvotos4.disabled = false;
+    myvotos5.disabled = false;
+    myvotos6.disabled = false;
+    myvotos7.disabled = false;
+    myvotos8.disabled = false;
+    myvotos9.disabled = false;
+    myvotos10.disabled = false;
+
+
+    checkbox.disabled = false;
+    checkbox2.disabled = false;
+  }
+
+  function habilitarCampos() {
+    const puestosvotacion = document.getElementById('puesto');
+    const puestoSeleccionado = puestosvotacion.value
+
+    if (puestoSeleccionado !== '') {
+      mymesa.disabled = false;
+      habilitar();
+    } else {
+      desHabilitar();
+    }
+  }
+
+  //CANCELAR
+  //$(document).on("click", ".btnCancel", function () {
+  //  $("#modalFotoE14").modal("hide");
+  //});
+
+  //LIMPIAR
+  $(document).on("click", ".btnLimpiar", function () {
+    limpiar();
+    desHabilitar();
+  });
+
+  
+  
+
+</script>

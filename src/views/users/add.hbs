@@ -1,0 +1,144 @@
+<div class="row p-5">
+  <div class="col-sm-7 mx-auto">
+    <div class="card ">
+      <div class="card-header bg-dark text-white">
+        <h6>Add Usuario</h6>
+      </div>
+      <div class="card-body">
+        <form action="/users/add" method="POST">
+          <div class="card-body">
+            <div class="form-group row">
+              <label for="usenamer" class="col-sm-2 col-form-label text-left">Usuario</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name='username' id="username" placeholder="users"
+                  title="Max 20 caracteres" pattern="[a-zA-Z0-9áéíóúñÑ#@$&/ ,.'-]{5,20}" autofocus required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="fullname" class="col-sm-2 col-form-label text-left">Nombre</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name='fullname' id="fullname" placeholder="Nombre usuario"
+                  title="Max 50 caracteres" pattern="[a-zA-Z0-9áéíóúñÑ#@$&/ ,.'-]{3,50}" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="codmpio" class="col-sm-2 col-form-label text-left">Municipio</label>
+              <div class="col-sm-10">
+                <select class="custom-select" name="codmpio" id="codmpio" onchange="llenarPuestos()" autofocus>
+                  <option value="">Seleccione un Municipio...</option>
+                  {{#each cytes }}
+                  <option value="{{codigo}}">{{mpio}}</option>
+                  {{/each }}
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="codpuesto" class="col-sm-2 col-form-label text-left">Puesto</label>
+              <div class="col-sm-10">
+                <select class="custom-select" name="codpuesto" id="puesto" disabled>
+                  <option value="">Seleccione un Puesto...</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="rol" class="col-sm-2 col-form-label text-left">Rol</label>
+              <div class="col-sm-10">
+                <select class="custom-select" name="rol" id="rol" required>
+                  <option value="">Seleccione</option>
+                  <option value="1">Administrador</option>
+                  <option value="2">Coordinador Departamental</option>
+                  <option value="3">Coordinador Municipal</option>
+                  <option value="4">Delegado Puesto</option>
+                  <option value="8">Analista</option>
+                  <option value="9">Digitador</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="especial" class="col-sm-2 col-form-label text-left"></label>
+              <div class="col-sm-10  text-right">
+                <input id="especial" class="form-check-input me-1" name="especial" type="checkbox" value="0">Especial
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-1">
+            <div class="col-sm-12 mx-auto">
+              <button class="btn btn-primary btn-block ">Guardar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var codptovotar = {{{ acodpuesto }}};
+  var nomptovotar = {{{ anompuesto }}};
+
+  var ptosMpios = [];
+  var pvotacion = [];
+  var registros = [];
+
+  const mycytes = document.getElementById('codmpio');
+  const mypuestos = document.getElementById('puesto');
+  const checkbox = document.getElementById('especial');
+ 
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      this.value = '1'; // Cambia el valor a '1' si está marcado
+    } else {
+      this.value = '0'; // Cambia el valor a '0' si está desmarcado
+    }
+  });
+
+  for (var i in codptovotar) {
+    pvotacion.push([
+      codptovotar[i],
+      nomptovotar[i]
+    ]);
+  }
+
+  function llenarArray(codpto) {
+    ptosMpios = []
+    for (let i = 0; i < pvotacion.length; i++) {
+      var currentNumber = pvotacion[i][0].toString();
+      var currentNombre = pvotacion[i][1].toString();
+
+      if (currentNumber.substr(0, 5) == codpto) {
+        ptosMpios.push([currentNumber, currentNombre])
+      }
+    }
+  }
+
+  function llenarPuestos() {
+    var municipios = document.getElementById('codmpio');
+    var puestosvotacion = document.getElementById('puesto');
+    var mpioSeleccionado = municipios.value
+
+    // Se limpian los puestos de votacion
+    puestosvotacion.innerHTML = '<option value="">Seleccione un Puesto...</option>'
+
+    if (mpioSeleccionado !== '') {
+      puestosvotacion.disabled = false;
+
+      // Se seleccionan los puestos de votacion por cada municipio
+      llenarArray(mpioSeleccionado);
+
+      // Insertamos los puestos de votacion
+      ptosMpios.forEach(function (puesto) {
+        let opcion = document.createElement('option')
+        opcion.value = puesto[0];
+        opcion.text = puesto[1];
+        puestosvotacion.add(opcion);
+      });
+    } else {
+      puestosvotacion.disabled = true;
+    }
+  }
+</script>

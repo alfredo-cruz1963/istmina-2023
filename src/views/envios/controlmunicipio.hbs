@@ -1,0 +1,51 @@
+<div class="container mt-1">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-header d-flex align-items-center" style="background-color: rgba(232, 240, 254, 0.90)">
+        <i class="text-success mr-1"></i><strong class="municipio">{{municipio}}  -  Puestos: {{ptosMpio}}</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-1">
+    <div class="col-md-12 mx-auto">
+      <div class="card ">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="tab-municipal" class="table table-bordered" style="width:100%" cellspacing="0">
+              <thead class="text-white" style="background-color: #165a96">
+                <td style="font-size:90%;"><strong>Cod Puesto</strong></td>
+                <td style="font-size:90%;"><strong>Nombre Puesto</strong></td>
+                <td style="font-size:90%;"><strong>Tot Mesas</strong></td>
+                <td style="font-size:90%;"><strong>Mesas Report</strong></td>
+                <td style="font-size:98%;"><strong>% Report</strong></td>
+                <td style="font-size:90%;"><strong>Total Votos</strong></td>
+                <td style="font-size:90%;"><strong>Promedio</strong></td>
+                <td><strong>Acción</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if mesasmpio }}
+                {{#each mesasmpio }}
+                <tr>
+                  <td>{{codigo}}</td>
+                  <td>{{nombpuesto}}</td>
+                  <td>{{mesaspto}}</td>
+                  <td>{{mesasreport}}</td>
+                  <td>{{porc_report}}</td>
+                  <td>{{totvot}}</td>
+                  <td>{{promedio}}</td>
+                  <td>
+                    <a href="/envios/search/{{codigo}}" class="btnEditar text-primary" title="Mostrar"><i class="fas fa-search"></i></a>
+                  </td>
+                </tr>
+                {{/each }}
+                {{/if }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

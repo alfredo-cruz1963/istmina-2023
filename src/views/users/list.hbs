@@ -1,0 +1,42 @@
+<div class="container mt-1">
+  <div class="row mt-1">
+    <div class="col-md-12 mx-auto">
+      <div class="card ">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="tab-usuario" class="table table-bordered" style="width:100%" cellspacing="0">
+              <thead class="text-white" style="background-color: #165a96">
+                <td style="font-size:80%;"><strong>Usuario</strong></td>
+                <td style="font-size:80%;"><strong>Nombre</strong></td>
+                <td style="font-size:80%;"><strong>Municipio</strong></td>
+                <td style="font-size:80%;"><strong>Puesto Votación</strong></td>
+                <td style="font-size:80%;"><strong>Rol</strong></td>
+                <td style="font-size:80%;"><strong>Espec</strong></td>
+                <td style="font-size:80%;"><strong>Acción</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if usuarios }}
+                {{#each usuarios }}
+                <tr>
+                  <td style="font-size:80%;">{{username }}</td>
+                  <td style="font-size:80%;">{{fullname }}</td>
+                  <td style="font-size:80%;">{{municipio }}</td>
+                  <td style="font-size:80%;">{{nombpuesto }}</td>
+                  <td style="font-size:80%;">{{roles }}</td>
+                  <td style="font-size:80%;">{{especial }}</td>
+                  <td>
+                    <a href="/users/edit/{{id}}" class="text-primary"><i class="fas fa-edit"></i></a>
+                    <a href="/users/delete/{{id}}" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                  </td>
+                </tr>
+                {{/each }}
+                {{/if }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
