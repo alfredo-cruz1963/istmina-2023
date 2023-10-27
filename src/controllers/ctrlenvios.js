@@ -132,7 +132,7 @@ ctrlenvios.add = async (req, res) => {
   //const mCodPuesto = req.user.codpuesto;
   const mCodMpio = "17019";
 
-  const puestos = await pool.query("SELECT codigo, CONCAT(codcom, ' ', nombpuesto) As nombpuesto FROM divipol WHERE codmpio = ?", mCodMpio);
+  const puestos = await pool.query("SELECT codigo, nombpuesto FROM divipol WHERE codmpio = ?", mCodMpio);
   const mesaspuesto = await pool.query("SELECT codigo, mesas FROM divipol WHERE codmpio = ?", mCodMpio);
 
   var aCodPuesto = [];
