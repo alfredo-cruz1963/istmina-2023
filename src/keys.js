@@ -14,7 +14,7 @@ module.exports = {
 
 
   //cuando se usa un hosting 
-  /*    
+  /*   
   database: {
     connectionLimit: 1000,
     host: 'pro.freedb.tech',
