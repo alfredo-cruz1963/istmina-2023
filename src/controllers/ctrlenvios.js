@@ -147,7 +147,7 @@ ctrlenvios.add = async (req, res) => {
   const jNombPuesto = JSON.stringify(aNombPuesto);
   const jMesasPuesto = JSON.stringify(mesaspuesto);
 
-  res.render('envios/add.hbs', { puestos, acodpuesto: jCodPuesto, anompuesto: jNombPuesto, mPuestos: jMesasPuesto });
+  res.render('envios/add1.hbs', { puestos, acodpuesto: jCodPuesto, anompuesto: jNombPuesto, mPuestos: jMesasPuesto });
 };
 
 // ************* add Testigos ***********************
